@@ -2,6 +2,17 @@
 
 This repository contains everything required for Exercise 3 of the Web-based Autonomous Systems course in Spring Semester 2022.
 
+Here are several notes:
+
+- We have removed the training and validation files as well as the trained weights from this repository because of a github LFS quota problem. They are available here:
+  * Training Pictures: https://drive.google.com/file/d/1pG1IQjC7Fi9CTAhQUHmDZqjMeiSjKyhI/view
+  * Test Pictures: https://drive.google.com/file/d/1hjBNFfMhI_Bi3Moq4bUuovI0kcbl2YCY/view
+  * Yolov4 Weights: https://drive.google.com/file/d/1D20UOBNwUiO_o3mriQTYe4je9vGfREkt/view
+
+- Note that running Darknet on your machine does _neither_ require a GPU _nor_ OpenCV to be installed, i.e. it is perfectly possible for you to clone darknet, set its parameters to GPU=0, OPENCV=0, CUDNN=0, CUDNN_HALF=0 and build it (see the Task 3 tutorial for more information). The only difference in this case is that Darknet will not open a window that visualizes its predictions, but simply give you the predictions on the command line. We still recommend that you set up OpenCV as it is generally useful.
+
+
+
 ### Project structure
 ```bash
 ├── graphDBstarter # kick-off code for Task 2
