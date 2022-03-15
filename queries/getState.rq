@@ -1,13 +1,24 @@
 PREFIX was: <http://www.semanticweb.org/rubengonzalez/ontologies/2022/2/untitled-ontology-8#>
 PREFIX schema: <http://schema.org/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT ?room ?blind ?blindState ?lamp ?lampState ?goal WHERE {
+SELECT ?room ?blind ?blindState ?lamp ?lampState ?goal {
 GRAPH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#> {
+  {
         ?room a schema:Room.
         ?blind a was:Blind.
-        ?blindState a was:BlindStateUp.
+        ?blind was:hasBlindState ?blindState.
         ?lamp a was:Lamp.
-        ?lampState a was:LampStateOn.
+        ?lamp was:hasLampState ?lampState.
         ?goal a was:RoomDarker.
+  } UNION {
+        ?room a schema:Room.
+        ?blind a was:Blind.
+        ?blind was:hasBlindState ?blindState.
+        ?lamp a was:Lamp.
+        ?lamp was:hasLampState ?lampState.
+        ?goal a was:RoomBrighter.
+  }
  }
 }
