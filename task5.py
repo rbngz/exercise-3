@@ -1,7 +1,7 @@
 import subprocess
 import urllib
 import requests
-from task2 import execute_get_query, print_query_results, query_map
+from task2 import execute_get_query, print_query_results, query_map, readfile
 
 DARKNET_PATH = "customYOLOv4/"
 GRAPH_URL = "https://graphdb.interactions.ics.unisg.ch/repositories/was-assignment-3"
@@ -113,4 +113,4 @@ print("To fulfill the Illumination Goal, the user needs to switch the states of 
 print(lamps)
 print(blinds)
 
-blinds = execute_get_query(query_map["clear"])
+execute_insert_query(readfile(QUERIES_PATH + query_map["clear"]))

@@ -1,6 +1,7 @@
 import subprocess
 import urllib
 import requests
+from task2 import readfile, query_map
 
 DARKNET_PATH = "customYOLOv4/"
 GRAPH_URL = "https://graphdb.interactions.ics.unisg.ch/repositories/was-assignment-3"
@@ -89,3 +90,4 @@ template = template.replace("[bindings]", "\n".join(template_bindings))
 
 print("Executing insert statement")
 execute_insert_query(template)
+execute_insert_query(readfile(QUERIES_PATH + query_map["clear"]))
