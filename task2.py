@@ -7,6 +7,12 @@ USER = "was-students"
 PASSCODE = "assignment-3-is-fun"
 QUERIES_PATH = "queries/"
 
+query_map = {
+    "insert": "insertState.rq",
+    "get": "getState.rq",
+    "clear": "clear.rq"
+}
+
 
 def print_query_results(sparql_query_results):
     reader = csv.DictReader(sparql_query_results.splitlines(), delimiter=',')
@@ -37,23 +43,22 @@ def readfile(file_path):
     return string_query
 
 
-query_map = {
-    "insert": "insertState.rq",
-    "get": "getState.rq",
-    "clear": "clear.rq"
-}
+def main():
+
+    response = execute_insert_query(query_map["insert"])
+    print("Inserted elements to DB")
+
+    response = execute_get_query(query_map["get"])
+    print("Elements in DB:")
+    print_query_results(response)
+
+    response = execute_insert_query(query_map["clear"])
+    print("Removed elements from DB")
+
+    response = execute_get_query(query_map["get"])
+    print("Elements in DB:")
+    print_query_results(response)
 
 
-response = execute_insert_query(query_map["insert"])
-print("Inserted elements to DB")
-
-response = execute_get_query(query_map["get"])
-print("Elements in DB:")
-print_query_results(response)
-
-response = execute_insert_query(query_map["clear"])
-print("Removed elements from DB")
-
-response = execute_get_query(query_map["get"])
-print("Elements in DB:")
-print_query_results(response)
+if __name__ == "__main__":
+    main()

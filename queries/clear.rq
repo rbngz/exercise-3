@@ -4,7 +4,6 @@ PREFIX schema: <http://schema.org/>
 WITH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#>
 DELETE { 
         ?room a schema:Room.
-        ?window a was:Window.
         ?blind a was:Blind.
         ?blindState a was:BlindStateUp.
         ?lamp a was:Lamp.
@@ -13,7 +12,6 @@ DELETE {
 }
 where {
         ?room a schema:Room.
-        ?window a was:Window.
         ?blind a was:Blind.
         ?blindState a was:BlindStateUp.
         ?lamp a was:Lamp.

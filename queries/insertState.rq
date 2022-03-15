@@ -5,7 +5,6 @@ INSERT {
     GRAPH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#>
     {
         ?room a schema:Room.
-        ?window a was:Window.
         ?blind a was:Blind.
         ?blindState a was:BlindStateUp.
         ?lamp a was:Lamp.
@@ -14,14 +13,13 @@ INSERT {
 
         ?room was:hasLamp ?lamp.
         ?lamp was:hasLampState ?lampState.
-        ?room was:hasWindow ?window.
         ?window was:hasBlind ?blind.
         ?blind was:hasBlindState ?blindState.
+        ?goal was:targetsRoom ?room.
 
     }.
 } WHERE {
 	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Room-", strUUID())) AS ?room)
-	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Window-", strUUID())) AS ?window)
 	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Blind-", strUUID())) AS ?blind)
 	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#BlindStateUp-", strUUID())) AS ?blindState)
 	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Lamp-", strUUID())) AS ?lamp)
