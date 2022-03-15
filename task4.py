@@ -27,7 +27,7 @@ def execute_insert_query(query):
 
 
 output = subprocess.check_output([f'./{DARKNET_PATH}darknet', "detector", "test", f'{DARKNET_PATH}obj.data',
-                                  f'{DARKNET_PATH}yolov4-four-obj.cfg', f'{DARKNET_PATH}yolov4-obj_final.weights', test_img])
+                                  f'{DARKNET_PATH}yolov4-four-obj.cfg', f'{DARKNET_PATH}yolov4-obj_final.weights', test_img],  stderr=subprocess.DEVNULL)
 output_str = str(output)
 for key in elements.keys():
     count = output_str.count(key)

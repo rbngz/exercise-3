@@ -1,30 +1,31 @@
 # Exercise 3: Integrating Web Ontologies and Inductive Reasoning
 
-This repository contains everything required for Exercise 3 of the Web-based Autonomous Systems course in Spring Semester 2022.
+Running the different programs for each task is quite straightforward:
+```
+python3 task2.py
+python3 task4.py
+python3 task5.py
+```
 
-Here are several notes:
+When executing the script for task 5, you will be asked to enter the path to an image. As test, you can enter test.png.
+For the illumination goal you can simply enter "darker" and the program will look for actionable steps to make the room darker. Alternatively you can enter "brighter" (or anything else really) and the program will look for steps to make the room brighter.
 
-- We have removed the training and validation files as well as the trained weights from this repository because of a github LFS quota problem. They are available here:
-  * Training Pictures: https://drive.google.com/file/d/1pG1IQjC7Fi9CTAhQUHmDZqjMeiSjKyhI/view
-  * Test Pictures: https://drive.google.com/file/d/1hjBNFfMhI_Bi3Moq4bUuovI0kcbl2YCY/view
-  * Yolov4 Weights: https://drive.google.com/file/d/1D20UOBNwUiO_o3mriQTYe4je9vGfREkt/view
+Example input/output:
+```
+python3 task5.py
+Path to image file: test.png
+Illumination goal (darker/brighter): darker
+```
+```
+Following Elements were detected:
+{'BlindStateUp': 0, 'BlindStateDown': 5, 'LampStateOn': 2, 'LampStateOff': 0}
+Executing insert statement
+Looking for actionable steps to reach goal...
+To fulfill the Illumination Goal, the user needs to switch the states of the following elements:
+lamp
+https://was-course.interactions.ics.unisg.ch/#Lamp-67289980-f0f8-4d76-bd0b-4c3ca3761c8d
+https://was-course.interactions.ics.unisg.ch/#Lamp-bbbc0ded-c287-4b59-8473-13702aadb33a
 
-- Note that running Darknet on your machine does _neither_ require a GPU _nor_ OpenCV to be installed, i.e. it is perfectly possible for you to clone darknet, set its parameters to GPU=0, OPENCV=0, CUDNN=0, CUDNN_HALF=0 and build it (see the Task 3 tutorial for more information). The only difference in this case is that Darknet will not open a window that visualizes its predictions, but simply give you the predictions on the command line. We still recommend that you set up OpenCV as it is generally useful.
+blind
 
-
-
-### Project structure
-```bash
-├── graphDBstarter # kick-off code for Task 2
-├── customYOLOv4 # everything needed for Tasks 3 and 4
-│   ├── FS22-WAS-Tutorial-Custom-Yolo.ipynb # Tutorial for training your own custom YOLOv4 detector, Task 3
-│   ├── obj.data # Configuration of training, Task 3
-│   ├── obj.names # Names of detected classes, Tasks 3 and 4
-│   ├── yolov4-four-obj.cfg # Configuration of YOLOv4 network for four classes, Task 3
-│   ├── obj.zip # Labelled training dataset from the Interactions Laboratory, Task 3
-│   ├── test.zip # Labelled validation dataset from the Interactions Laboratory, Task 3
-│   ├── generate_train.py # Helper that puts names of training images into a textfile, Task 3
-│   ├── generate_test.py # Helper that puts names of test images into a textfile, Task 3
-│   └── yolov4-obj_final.weights # Trained YOLOv4 weights for our laboratory environment
-└── README.md # this README.md
 ```
