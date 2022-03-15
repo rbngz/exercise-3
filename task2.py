@@ -10,8 +10,10 @@ QUERIES_PATH = "queries/"
 query_map = {
     "insert": "insertState.rq",
     "get": "getState.rq",
-    "check_lamps": "checkLamps.rq",
-    "check_blinds": "checkBlinds.rq",
+    "check_lamps_darker": "checkLampsDarker.rq",
+    "check_blinds_darker": "checkBlindsDarker.rq",
+    "check_lamps_brighter": "checkLampsBrighter.rq",
+    "check_blinds_brighter": "checkBlindsBrighter.rq",
     "clear": "clear.rq"
 }
 
@@ -54,8 +56,8 @@ def main():
     print("Elements in DB:")
     print_query_results(response)
 
-    lamps = execute_get_query(query_map["check_lamps"])
-    blinds = execute_get_query(query_map["check_blinds"])
+    lamps = execute_get_query(query_map["check_lamps_darker"])
+    blinds = execute_get_query(query_map["check_blinds_darker"])
     print("To fulfill the Illumination Goal, the user needs to switch the states of the following elements:")
     print(lamps)
     print(blinds)

@@ -1,12 +1,12 @@
 PREFIX was: <http://www.semanticweb.org/rubengonzalez/ontologies/2022/2/untitled-ontology-8#>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?lamp WHERE {
+SELECT ?blind WHERE {
 GRAPH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#> {
-        ?goal a was:RoomDarker.
+        ?goal a was:RoomBrighter.
         ?goal was:targetsRoom ?room.
-        ?room was:hasLamp ?lamp.
-        ?lamp was:hasLampState ?lampState.
-        ?lampState a was:LampStateOff.
+        ?room was:hasBlind ?blind.
+        ?blind was:hasBlindState ?blindState.
+        ?blindState a was:BlindStateDown.
  }
 }

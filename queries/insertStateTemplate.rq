@@ -1,0 +1,18 @@
+PREFIX was: <http://www.semanticweb.org/rubengonzalez/ontologies/2022/2/untitled-ontology-8#>
+PREFIX schema: <http://schema.org/>
+
+INSERT {
+    GRAPH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#>
+    {
+        ?room a schema:Room.
+
+        [elements]
+
+
+        [attributes]
+
+    }.
+} WHERE {
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Room-", strUUID())) AS ?room)
+    [bindings]
+}
