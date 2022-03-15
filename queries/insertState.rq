@@ -1,0 +1,30 @@
+PREFIX was: <http://www.semanticweb.org/rubengonzalez/ontologies/2022/2/untitled-ontology-8#>
+PREFIX schema: <http://schema.org/>
+
+INSERT {
+    GRAPH <https://interactions.ics.unisg.ch/was-assignment-3-ruben#>
+    {
+        ?room a schema:Room.
+        ?window a was:Window.
+        ?blind a was:Blind.
+        ?blindState a was:BlindStateUp.
+        ?lamp a was:Lamp.
+        ?lampState a was:LampStateOn.
+        ?goal a was:RoomDarker.
+
+        ?room was:hasLamp ?lamp.
+        ?lamp was:hasLampState ?lampState.
+        ?room was:hasWindow ?window.
+        ?window was:hasBlind ?blind.
+        ?blind was:hasBlindState ?blindState.
+
+    }.
+} WHERE {
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Room-", strUUID())) AS ?room)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Window-", strUUID())) AS ?window)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Blind-", strUUID())) AS ?blind)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#BlindStateUp-", strUUID())) AS ?blindState)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Lamp-", strUUID())) AS ?lamp)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#LampStateOn-", strUUID())) AS ?lampState)
+	BIND(IRI(CONCAT("https://was-course.interactions.ics.unisg.ch/#Goal-", strUUID())) AS ?goal)
+}
