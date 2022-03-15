@@ -12,8 +12,8 @@ INSERT {
         ?goal a was:RoomDarker.
 
         ?room was:hasLamp ?lamp.
+        ?room was:hasBlind ?blind.
         ?lamp was:hasLampState ?lampState.
-        ?window was:hasBlind ?blind.
         ?blind was:hasBlindState ?blindState.
         ?goal was:targetsRoom ?room.
 

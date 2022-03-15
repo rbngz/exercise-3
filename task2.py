@@ -10,6 +10,8 @@ QUERIES_PATH = "queries/"
 query_map = {
     "insert": "insertState.rq",
     "get": "getState.rq",
+    "check_lamps": "checkLamps.rq",
+    "check_blinds": "checkBlinds.rq",
     "clear": "clear.rq"
 }
 
@@ -51,6 +53,12 @@ def main():
     response = execute_get_query(query_map["get"])
     print("Elements in DB:")
     print_query_results(response)
+
+    lamps = execute_get_query(query_map["check_lamps"])
+    blinds = execute_get_query(query_map["check_blinds"])
+    print("To fulfill the Illumination Goal, the user needs to switch the states of the following elements:")
+    print(lamps)
+    print(blinds)
 
     response = execute_insert_query(query_map["clear"])
     print("Removed elements from DB")
